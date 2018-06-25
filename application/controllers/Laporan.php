@@ -6,8 +6,10 @@ class Laporan extends CI_Controller {
 		$data['service'] = "";
 		$data['laporan'] = "active";
 
-		$this->load->view('v_laporan');
 		$this->load->view('header', $data);
+		$this->load->view('v_laporan');
+		$this->load->view('navigation');
+		$this->load->view('footer');
 	}
 }
 ?>

@@ -1,10 +1,4 @@
-<link rel="stylesheet" href="<?php echo base_url('/assets/css/style3.css'); ?>">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-<title>Login</title>
-
-<body style="background-color: #2e353d">
   <div class="login-page">
     <div class="form">
       <div class="brand pb-3  "><img src="<?php echo base_url('/assets/img/Logo.png'); ?>" width="200px"></div>
@@ -32,4 +26,3 @@
       </form>
     </div>
   </div>
-</body>

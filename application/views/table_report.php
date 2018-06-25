@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-</head><body>
+
   <div id="outtable">
     <table>
       <tr>
@@ -21,4 +19,3 @@
       <?php endforeach; ?>
     </table>
    </div>
-</body></html>

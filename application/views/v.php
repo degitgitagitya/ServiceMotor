@@ -1,7 +1,5 @@
 
-</head>
 
-<body>
 <div><br><br></div>
 
 <div class="container-fluid">
@@ -77,6 +75,3 @@
   </div>
 
 </div>
-
-</body>
-</html>

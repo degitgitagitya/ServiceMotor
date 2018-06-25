@@ -9,6 +9,8 @@ class Service extends CI_Controller {
 		$data['referensijasa'] = $this->Jasa->getAll()->result();
 
 		$this->load->view('v_service', $data);
+		$this->load->view('footer', $data);
+		$this->load->view('navigation', $data);
 		$this->load->view('header', $data);
 	}
 }

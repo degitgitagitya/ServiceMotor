@@ -4,6 +4,7 @@ class Login extends CI_Controller{
 
 	function index()
 	{
+		$this->load->view('header');
 		$this->load->view('v_login');
 	}
 
@@ -23,6 +24,7 @@ class Login extends CI_Controller{
 				$this->session->set_userdata('nama_kasir', $value->nama_kasir);
 				$this->session->set_userdata('role', $value->role);
 				$this->session->set_userdata('id_kasir', $value->id);
+				$this->session->set_userdata('cust', "");
 
 				$sign = true;
 
