@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 25, 2018 at 03:05 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Host: localhost:3306
+-- Generation Time: Jun 25, 2018 at 02:23 PM
+-- Server version: 10.2.6-MariaDB-log
+-- PHP Version: 7.1.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -113,7 +113,12 @@ INSERT INTO `referensijasa` (`id`, `kategori`, `harga_jasa`) VALUES
 ('K002', 'Kategori B', 2000000),
 ('K003', 'Kategori C', 3000000),
 ('K004', 'Kategori D', 4000000),
-('K005', 'Kategori E', 5000000);
+('K005', 'Kategori E', 5000000),
+('K006', 'Kategori F', 6000000),
+('K007', 'Kategori G', 7000000),
+('K008', 'Kategori H', 8000000),
+('K009', 'Kategori I', 9000000),
+('K010', 'Kategori J', 10000000);
 
 -- --------------------------------------------------------
 
@@ -132,16 +137,26 @@ CREATE TABLE `referensijasa_detail` (
 --
 
 INSERT INTO `referensijasa_detail` (`id`, `id_jasa`, `id_part`) VALUES
-(21, 'K001', 'P001'),
-(22, 'K001', 'P002'),
-(23, 'K002', 'P003'),
-(24, 'K002', 'P004'),
-(25, 'K003', 'P005'),
-(26, 'K003', 'P006'),
-(27, 'K004', 'P007'),
-(28, 'K004', 'P008'),
-(29, 'K005', 'P009'),
-(30, 'K005', 'P010');
+(1, 'K001', 'P001'),
+(2, 'K001', 'P002'),
+(3, 'K001', 'P003'),
+(4, 'K001', 'P004'),
+(5, 'K002', 'P005'),
+(6, 'K002', 'P006'),
+(7, 'K002', 'P007'),
+(8, 'K003', 'P008'),
+(9, 'K004', 'P009'),
+(10, 'K005', 'P010'),
+(11, 'K005', 'P011'),
+(12, 'K005', 'P012'),
+(13, 'K006', 'P013'),
+(14, 'K006', 'P014'),
+(15, 'K007', 'P015'),
+(16, 'K008', 'P016'),
+(17, 'K009', 'P017'),
+(18, 'K010', 'P018'),
+(19, 'K010', 'P019'),
+(20, 'K010', 'P020');
 
 -- --------------------------------------------------------
 
@@ -170,7 +185,17 @@ INSERT INTO `referensipart` (`id`, `nama_part`, `harga_part`, `stok`) VALUES
 ('P007', '88120KTM000FMB', 120000, 15),
 ('P008', 'STRIPE RED L', 1200000, 14),
 ('P009', 'SPG,DRUM STOPPER', 15000000, 11),
-('P010', 'CYLDR.SB.AS.FR.BK.MT', 100000, 0);
+('P010', 'CYLDR.SB.AS.FR.BK.MT', 100000, 5),
+('P011', 'BOLT FLANGE 8X28\r\n', 12000, 8),
+('P012', 'SWITCH,LIGHT', 1005000, 10),
+('P013', 'SOCKET HEADLIGHT ASSY\r\n', 48000, 12),
+('P014', 'HEADLIGHT ASSY\r\n', 165000, 5),
+('P015', 'SWINGARM RR ASSY\r\n', 370000, 3),
+('P016', 'COVER UNDER R SD(BLK)\r\n', 117000, 8),
+('P017', 'HORN COMP,R', 600000, 9),
+('P018', 'T SHIRT BEAT BIRU HIJAU\r\n', 40000, 3),
+('P019', 'OFFSET WR\r\n', 38000, 5),
+('P020', 'BAR COMP STEP\r\n', 80000, 2);
 
 -- --------------------------------------------------------
 
@@ -318,7 +343,7 @@ ALTER TABLE `pelanggan`
 -- AUTO_INCREMENT for table `referensijasa_detail`
 --
 ALTER TABLE `referensijasa_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `transaksijasa`
