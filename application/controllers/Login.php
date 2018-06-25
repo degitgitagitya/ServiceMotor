@@ -6,6 +6,7 @@ class Login extends CI_Controller{
 	{
 		$this->load->view('header');
 		$this->load->view('v_login');
+		$this->load->view('footer');
 	}
 
 	function verifikasi()

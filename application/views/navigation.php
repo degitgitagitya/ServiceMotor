@@ -19,13 +19,13 @@
 			<?php if ($_SESSION['role'] == 'Kasir'): ?>
 
 				<li class="<?php echo $pembelian ?>">
-					<a href='<?php echo base_url('Beli'); ?>'>
+					<a href='<?php echo base_url('Beli/open'); ?>'>
 						<i class="fa fa-motorcycle fa-lg"></i> Penjualan
 					</a>
 				</li>
 
 				<li class="<?php echo $service ?>">
-					<a href='<?php echo base_url('Service'); ?>'>
+					<a href='<?php echo base_url('Service/open'); ?>'>
 						<i class="fa fa-cog fa-lg"></i> Service
 					</a>
 				</li>

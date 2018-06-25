@@ -28,8 +28,8 @@
         </div>
         <div class="col-sm-3">
           <form method="post" action="<?php echo base_url('index.php/Beli/save')?>">
-			  <input class="form-control input-sm" type="text" name="no_transaksi" value="<?php echo $_SESSION['id_transaksi'] ?>">
-			  <input class="form-control input-sm" type="text" name="tanggal" value="<?php echo date("d/n/Y") ?>">
+			  <input readonly class="form-control input-sm" type="text" name="no_transaksi" value="<?php echo $_SESSION['id_transaksi'] ?>">
+			  <input readonly class="form-control input-sm" type="text" name="tanggal" value="<?php echo date("d/n/Y") ?>">
 			  <input class="form-control input-sm" type="text" name="nama_cust" value="<?php if(isset($_SESSION['cust'])){echo $_SESSION['cust'];}?>">
 			  <?php if ($_SESSION['cust'] == ""){ ?>
 			  <input type="submit" class="input-sm btn btn btn-success" value="Ok">
