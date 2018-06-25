@@ -45,5 +45,12 @@ class Part extends CI_Model{
 		$this->db->where('id', $id_transaksi_part);
 		$this->db->delete('transaksipart');
 	}
+
+	function deleteByPart($id){
+
+		$this->db->where('id_referensi_part', $id);
+		$this->db->where('id_transaksi', $_SESSION['id_transaksi']);
+		$this->db->delete('transaksipart');
+	}
 	
 }

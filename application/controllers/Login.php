@@ -26,6 +26,9 @@ class Login extends CI_Controller{
 				$this->session->set_userdata('role', $value->role);
 				$this->session->set_userdata('id_kasir', $value->id);
 				$this->session->set_userdata('cust', "");
+				$this->session->set_userdata('alamat', "");
+				$this->session->set_userdata('stnk', "");
+				$this->session->set_userdata('merk', "");
 
 				$sign = true;
 

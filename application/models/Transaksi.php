@@ -25,13 +25,14 @@ class Transaksi extends CI_Model {
 		return $value;
 	}
 
-	public function insert($id_transaksi, $id_kasir, $tanggal ,$id_pel){
+	public function insert($id_transaksi, $id_kasir, $tanggal ,$id_pel,$mekanik){
 
 		$data = array(
 			'id_transaksi' => $id_transaksi,
 			'id_kasir' => $id_kasir,
 			'tanggal_transaksi' => $tanggal,
 			'id_pelanggan' => $id_pel,
+			'nama_mekanik' => $mekanik,
 			'harga_total' => 0
 		);
 

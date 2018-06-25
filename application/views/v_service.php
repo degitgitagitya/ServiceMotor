@@ -55,7 +55,12 @@
         <div class="col-sm-2">
           <div class="form-group">
 			  <input class="form-control input-sm" type="text" name="nama_kasir" value="<?php echo $_SESSION['nama_kasir'] ?>" readonly>
-			  <input class="form-control input-sm" type="text" name="mekanik">
+			  <select class="form-control input-sm" name="mekanik" id="mekanik">
+				  <option value="" selected disabled hidden>Pilih Mekanik</option>
+				  <?php foreach ($mekanik as $value){ ?>
+				  <option <?php if(isset($_SESSION['mekanik'])){if ($_SESSION['mekanik'] == $value->nama){?> selected <?php } } ?> value="<?php echo $value->nama?>"><?php echo $value->nama?></option>
+				  <?php } ?>
+			  </select>
 			  <?php if ($_SESSION['cust'] == ""){ ?>
 				  <input type="submit" class="input-sm btn btn btn-success" value="Ok">
 			  <?php } ?>
@@ -113,6 +118,11 @@
                   <i class="fa fa-print fa-lg"> Cetak</i>
               </button>
             </a>
+			  <a href="<?php echo base_url('index.php/Service') ?>">
+				  <button class="btn btn-light">
+					  <i class="fa fa-print fa-lg"> Selesai</i>
+				  </button>
+			  </a>
           </div>
         </div>
       </div>
@@ -164,8 +174,7 @@
             <td><?php echo $key->kategori ?></td>
             <td><?php echo $key->harga_jasa ?></td>
             <td>
-              <input class="form-control input-sm col-md-3" type="number" name="jumlah">
-              <button class="btn btn-success ml-2">Add</button>
+              <a href="<?php echo base_url('Service/add/').$key->id; ?>" class="btn btn-success ml-2" style="color: white;">Add</a>
             </td>
           </tr>
 
@@ -176,6 +185,3 @@
     </div>
   </div>
 </div>
-
-</body>
-</html>

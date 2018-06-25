@@ -3,6 +3,9 @@ class Beli extends CI_Controller {
 	public function index()
 	{
 		$_SESSION['cust'] = "";
+		$_SESSION['alamat'] = "";
+		$_SESSION['stnk'] = "";
+		$_SESSION['merk'] = "";
 		$id_transaksi = $this->Transaksi->getIDTrans();
 		$this->session->set_userdata('id_transaksi', $id_transaksi);
 		$data['pembelian'] = "active";
@@ -32,6 +35,7 @@ class Beli extends CI_Controller {
 		$this->load->view('navigation', $data);
 		$this->load->view('header', $data);
 	}
+
 	function add(){
 
 		$id_referensi = $this->input->post('id_part');
@@ -60,7 +64,7 @@ class Beli extends CI_Controller {
 		$this->Pelanggan->insert($nama,$alamat,$stnk,$merk);
 		$id_pel = $this->Pelanggan->getIDPel();
 
-		$this->Transaksi->insert($id,$_SESSION['id_kasir'],$tgl,$id_pel);
+		$this->Transaksi->insert($id,$_SESSION['id_kasir'],$tgl,$id_pel,"-");
 		$this->open();
 	}
 }
