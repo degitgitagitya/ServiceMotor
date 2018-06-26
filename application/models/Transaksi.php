@@ -13,6 +13,16 @@ class Transaksi extends CI_Model {
 
 	}
 
+	public function getAll(){
+		return $this->db->get('transaksifinal');
+	}
+
+	public function getView(){
+		$result = $this->db->query("SELECT transaksifinal.id_transaksi, transaksifinal.tanggal_transaksi, pelanggan.nama_pelanggan, transaksifinal.harga_total FROM transaksifinal, pelanggan WHERE transaksifinal.id_pelanggan = pelanggan.id;");
+
+		return $result;
+	}
+
 	public function getIDTrans(){
 
 		$trans = $this->db->query("Select * From transaksifinal ORDER by id_transaksi DESC LIMIT 1")->result();

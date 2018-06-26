@@ -16,9 +16,15 @@ class Service extends CI_Controller {
 		$data['referensijasa'] = $this->Jasa->getAll()->result();
 		$data['jasa'] = $this->Jasa->getView($_SESSION['id_transaksi'])->result();
 
+		$data['referensipart'] = $this->Part->getAll()->result();
+		$data['part'] = $this->Part->getView($_SESSION['id_transaksi'])->result();
+
 		$data['mekanik'] = $this->Mekanik->getAll()->result();
 
 		$this->load->view('v_service', $data);
+		$this->load->view('v_modal_service', $data);
+		$this->load->view('v_beli', $data);
+		$this->load->view('v_modal_parts', $data);
 		$this->load->view('footer', $data);
 		$this->load->view('navigation', $data);
 		$this->load->view('header', $data);
@@ -33,9 +39,15 @@ class Service extends CI_Controller {
 		$data['referensijasa'] = $this->Jasa->getAll()->result();
 		$data['jasa'] = $this->Jasa->getView($_SESSION['id_transaksi'])->result();
 
+		$data['referensipart'] = $this->Part->getAll()->result();
+		$data['part'] = $this->Part->getView($_SESSION['id_transaksi'])->result();
+
 		$data['mekanik'] = $this->Mekanik->getAll()->result();
 
 		$this->load->view('v_service', $data);
+		$this->load->view('v_modal_service', $data);
+		$this->load->view('v_beli', $data);
+		$this->load->view('v_modal_parts', $data);
 		$this->load->view('footer', $data);
 		$this->load->view('navigation', $data);
 		$this->load->view('header', $data);
@@ -90,6 +102,38 @@ class Service extends CI_Controller {
 		$id_pel = $this->Pelanggan->getIDPel();
 
 		$this->Transaksi->insert($id,$_SESSION['id_kasir'],$tgl,$id_pel,$mekanik);
+		$this->open();
+	}
+
+	function add_parts(){
+
+		$id_referensi = $this->input->post('id_part');
+		$quantity = $this->input->post('qty');
+		$this->Part->insert($id_referensi,$_SESSION['id_transaksi'],$quantity);
+		$this->open();
+	}
+
+	function remove_parts($id){
+
+		$this->Part->delete($id);
+		$this->open();
+	}
+
+	function save_parts(){
+
+		$id = $this->input->post('no_transaksi');
+		$tgl = $this->input->post('tanggal');
+		$nama = $this->input->post('nama_cust');
+
+		$this->session->set_userdata('cust', $nama);
+
+		$alamat = "";
+		$stnk = "";
+		$merk = "";
+		$this->Pelanggan->insert($nama,$alamat,$stnk,$merk);
+		$id_pel = $this->Pelanggan->getIDPel();
+
+		$this->Transaksi->insert($id,$_SESSION['id_kasir'],$tgl,$id_pel,"-");
 		$this->open();
 	}
 }
