@@ -26,10 +26,12 @@
         </div>
         <div class="col-sm-3">
           <div class="form-group">
-			  <input readonly class="form-control input-sm" type="text" name="no_transaksi" value="<?php echo $_SESSION['id_transaksi'];?>">
-			  <input readonly class="form-control input-sm" type="text" name="tanggal" value="<?php echo date("d/n/Y") ?>">
-			  <input class="form-control input-sm" type="text" value="<?php if(isset($_SESSION['cust'])){echo $_SESSION['cust'];}?>" name="nama_cust">
-
+        <?php foreach ($iden_id as $key) {?> 
+          <input readonly class="form-control input-sm" type="text" name="no_transaksi" value="<?php echo $key->id_transaksi;?>">
+          <input readonly class="form-control input-sm" type="text" name="tanggal" value="<?php echo $key->tanggal_transaksi; ?>">
+          <input readonly class="form-control input-sm" type="text" name="nama_cust" value="<?php echo $key->nama_pelanggan; ?>">
+        <?php } ?>
+        
           </div>
         </div>
         <div class="col-xm-2">
@@ -41,9 +43,11 @@
         </div>
         <div class="col-sm-3">
           <div class="form-group">
-            <input class="form-control input-sm" value="<?php if(isset($_SESSION['alamat'])){echo $_SESSION['alamat'];}?>" type="text" name="alamat">
-            <input class="form-control input-sm" value="<?php if(isset($_SESSION['stnk'])){echo $_SESSION['stnk'];}?>" type="text" name="no_stnk">
-            <input class="form-control input-sm" value="<?php if(isset($_SESSION['merk'])){echo $_SESSION['merk'];}?>" type="text" name="merk_motor">
+            <?php foreach ($iden_id as $key) {?>
+              <input readonly class="form-control input-sm" type="text" name="alamat" value="<?php echo $key->alamat;?>">
+              <input readonly class="form-control input-sm" type="text" name="no_stnk" value="<?php echo $key->stnk; ?>">
+              <input readonly class="form-control input-sm" type="text" name="merk_motor" value="<?php echo $key->merk_motor; ?>">
+            <?php } ?>
           </div>
         </div>
         <div class="col-xm-2 col-md-offset-1">
@@ -54,16 +58,10 @@
         </div>
         <div class="col-sm-2">
           <div class="form-group">
-			  <input class="form-control input-sm" type="text" name="nama_kasir" value="<?php echo $_SESSION['nama_kasir'] ?>" readonly>
-			  <select class="form-control input-sm" name="mekanik" id="mekanik">
-				  <option value="" selected disabled hidden>Pilih Mekanik</option>
-				  <?php foreach ($mekanik as $value){ ?>
-				  <option <?php if(isset($_SESSION['mekanik'])){if ($_SESSION['mekanik'] == $value->nama){?> selected <?php } } ?> value="<?php echo $value->nama?>"><?php echo $value->nama?></option>
-				  <?php } ?>
-			  </select>
-			  <?php if ($_SESSION['cust'] == ""){ ?>
-				  <input type="submit" class="input-sm btn btn btn-success" value="Ok">
-			  <?php } ?>
+          <?php foreach ($iden_id as $key) {?>
+    			  <input class="form-control input-sm" type="text" name="nama_kasir" value="<?php echo $key->nama_kasir ?>" readonly>
+            <input class="form-control input-sm" type="text" name="mekanik" value="<?php echo $key->nama_mekanik ?>" readonly>
+          <?php } ?>
           </div>
         </div>
       </form>
@@ -85,12 +83,12 @@
                 </tr>
               </thead>
               <tbody>
-			  <?php foreach ($jasa as $value){?>
+			  <?php foreach ($jasa_id as $value){?>
                 <tr class="table table-light">
                   <td><?php echo $no++;?></td>
                   <td><?php echo $value->kategori?></td>
                   <td><?php echo $value->harga_jasa?></td>
-                  <td><a href="<?php echo base_url('index.php/Service/remove/').$value->id;?>" class="btn btn-warning">Delete</a></td>
+                  <td><a href="<?php echo base_url('Log/remove/').$value->id;?>" class="btn btn-warning">Delete</a></td>
                 </tr>
 			  <?php $jumlah = $jumlah + $value->harga_jasa; } ?>
               </tbody>
@@ -144,7 +142,7 @@
                 </tr>
               </thead>
               <tbody>
-          <?php foreach ($part as $value){ ?>
+          <?php foreach ($part_id as $value){ ?>
 
                 <tr class="table table-light">
           <td><?php echo $no2++; ?></td>
@@ -152,7 +150,7 @@
           <td><?php echo $value->harga_part; ?></td>
           <td><?php echo $value->quantity; ?></td>
           <td><?php echo $value->harga_part * $value->quantity; ?></td>
-                  <td><a href="<?php echo base_url('Service/remove_parts/').$value->id;?>" class="btn btn-warning">Delete</a></td>
+                  <td><a href="<?php echo base_url('Log/remove_parts/').$value->id;?>" class="btn btn-warning">Delete</a></td>
                 </tr>
 
           <?php $jumlah2 = $jumlah2 + $value->harga_part * $value->quantity; } ?>
@@ -192,7 +190,7 @@
                 <i class="fa fa-print fa-lg"> Cetak</i>
             </button>
           </a>
-          <a href="<?php echo base_url('Service') ?>">
+          <a href="<?php echo base_url('Log/update/').($jumlah+$jumlah2) ?>">
             <button class="btn btn-light">
               <i class="fa fa-print fa-lg"> Selesai</i>
             </button>

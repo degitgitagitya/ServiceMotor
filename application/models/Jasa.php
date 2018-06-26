@@ -30,7 +30,7 @@ class Jasa extends CI_Model{
 			$total = $total + $value->harga_jasa;
 		}
 
-		$this->Transaksi->update($total);
+		$this->Transaksi->update($total, $_SESSION['id_transaksi']);
 
 		return $result;
 	}

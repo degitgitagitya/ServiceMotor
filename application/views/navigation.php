@@ -18,15 +18,9 @@
 
 			<?php if ($_SESSION['role'] == 'Kasir'): ?>
 
-				<li class="<?php echo $pembelian ?>">
-					<a href='<?php echo base_url('Beli/open'); ?>'>
-						<i class="fa fa-motorcycle fa-lg"></i> Penjualan
-					</a>
-				</li>
-
 				<li class="<?php echo $service ?>">
 					<a href='<?php echo base_url('Service/open'); ?>'>
-						<i class="fa fa-cog fa-lg"></i> Service
+						<i class="fa fa-cog fa-lg"></i> Transaksi
 					</a>
 				</li>
 
@@ -39,6 +33,13 @@
 						<i class="fa fa-bar-chart fa-lg"></i> Laporan
 					</a>
 				</li>
+
+				<li class="<?php echo $log ?>">
+					<a href='<?php echo base_url('Log'); ?>'>
+						<i class="fa fa fa-newspaper-o fa-lg"></i> Log
+					</a>
+				</li>
+
 
 			<?php endif ?>
 

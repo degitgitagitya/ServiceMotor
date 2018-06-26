@@ -38,7 +38,7 @@ class Login extends CI_Controller{
 
 		if ($sign == true) {
 			if ($role == 'Kasir') {
-				redirect('Beli');
+				redirect('Service');
 			}
 			else{
 				redirect('Laporan');
@@ -48,7 +48,9 @@ class Login extends CI_Controller{
 		else{
 
 			$data['warning'] = "Kombinasi Salah";
+			$this->load->view('header');
 			$this->load->view('v_login',$data);
+			$this->load->view('footer');
 		}
 	}
 

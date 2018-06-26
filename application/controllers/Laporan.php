@@ -5,6 +5,21 @@ class Laporan extends CI_Controller {
 		$data['pembelian'] = "";
 		$data['service'] = "";
 		$data['laporan'] = "active";
+		$data['log'] = "";
+
+		$this->load->view('header', $data);
+		$this->load->view('v_laporan');
+		$this->load->view('navigation');
+		$this->load->view('footer');
+	}
+
+	public function detail($id){
+		$_SESSION['id_trans'] = $id;
+		
+		$data['pembelian'] = "";
+		$data['service'] = "";
+		$data['laporan'] = "active";
+		$data['log'] = "";
 
 		$this->load->view('header', $data);
 		$this->load->view('v_laporan');
