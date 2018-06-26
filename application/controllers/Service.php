@@ -7,6 +7,7 @@ class Service extends CI_Controller {
 		$_SESSION['alamat'] = "";
 		$_SESSION['stnk'] = "";
 		$_SESSION['merk'] = "";
+		$_SESSION['mekanik'] = "";
 		$id_transaksi = $this->Transaksi->getIDTrans();
 		$this->session->set_userdata('id_transaksi', $id_transaksi);
 		$data['pembelian'] = "";
