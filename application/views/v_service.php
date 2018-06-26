@@ -116,6 +116,7 @@
   </div>
 </div>
 
+<<<<<<< HEAD
 <?php
   $no2 = 1;
   $jumlah2 = 0;
@@ -203,3 +204,5 @@
     </div>
   </div>
 </div>
+=======
+>>>>>>> bef7d4e2c73b8a24cc2ccf30f4348abf1fd42e92

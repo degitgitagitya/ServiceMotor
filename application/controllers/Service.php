@@ -23,6 +23,10 @@ class Service extends CI_Controller {
 
 		$this->load->view('v_service', $data);
 		$this->load->view('v_modal_service', $data);
+<<<<<<< HEAD
+=======
+		$this->load->view('v_beli', $data);
+>>>>>>> bef7d4e2c73b8a24cc2ccf30f4348abf1fd42e92
 		$this->load->view('v_modal_parts', $data);
 		$this->load->view('footer', $data);
 		$this->load->view('navigation', $data);
@@ -45,6 +49,10 @@ class Service extends CI_Controller {
 
 		$this->load->view('v_service', $data);
 		$this->load->view('v_modal_service', $data);
+<<<<<<< HEAD
+=======
+		$this->load->view('v_beli', $data);
+>>>>>>> bef7d4e2c73b8a24cc2ccf30f4348abf1fd42e92
 		$this->load->view('v_modal_parts', $data);
 		$this->load->view('footer', $data);
 		$this->load->view('navigation', $data);
@@ -116,5 +124,26 @@ class Service extends CI_Controller {
 		$this->Part->delete($id);
 		$this->open();
 	}
+<<<<<<< HEAD
+=======
+
+	function save_parts(){
+
+		$id = $this->input->post('no_transaksi');
+		$tgl = $this->input->post('tanggal');
+		$nama = $this->input->post('nama_cust');
+
+		$this->session->set_userdata('cust', $nama);
+
+		$alamat = "";
+		$stnk = "";
+		$merk = "";
+		$this->Pelanggan->insert($nama,$alamat,$stnk,$merk);
+		$id_pel = $this->Pelanggan->getIDPel();
+
+		$this->Transaksi->insert($id,$_SESSION['id_kasir'],$tgl,$id_pel,"-");
+		$this->open();
+	}
+>>>>>>> bef7d4e2c73b8a24cc2ccf30f4348abf1fd42e92
 }
 ?>
