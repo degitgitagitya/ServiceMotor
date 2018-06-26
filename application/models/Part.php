@@ -31,6 +31,15 @@ class Part extends CI_Model{
 
 	function insert($id_referensi_part, $id_transaksi,$quantity){
 
+		$this->db->where('id',$id_referensi_part);
+		$temp = $this->db->get('referensipart')->result();
+
+		$stok = $temp[0]->stok - $quantity;
+
+		$this->db->set('stok',$stok);
+		$this->db->where('id',$id_referensi_part);
+		$this->db->update('referensipart');
+
 		$data = array(
 			'id_referensi_part' => $id_referensi_part,
 			'id_transaksi' => $id_transaksi,
@@ -42,11 +51,45 @@ class Part extends CI_Model{
 
 	function delete($id_transaksi_part){
 
+		$this->db->where('id',$id_transaksi_part);
+		$temp = $this->db->get('transaksipart')->result();
+
+		$qty = $temp[0]->quantity;
+
+		$this->db->where('id',$temp[0]->id_referensi_part);
+		$tmp = $this->db->get('referensipart')->result();
+
+		$stok = $tmp[0]->stok + $qty;
+
+		$this->db->set('stok',$stok);
+		$this->db->where('id',$temp[0]->id_referensi_part);
+		$this->db->update('referensipart');
+
 		$this->db->where('id', $id_transaksi_part);
 		$this->db->delete('transaksipart');
 	}
 
 	function deleteByPart($id){
+
+		$this->db->where('id_referensi_part', $id);
+		$this->db->where('id_transaksi', $_SESSION['id_transaksi']);
+		$temp = $this->db->get('transaksipart')->result();
+
+		$qty = 0;
+
+		foreach ($temp as $value){
+
+			$qty = $qty + $value->quantity;
+		}
+
+		$this->db->where('id',$temp[0]->id_referensi_part);
+		$tmp = $this->db->get('referensipart')->result();
+
+		$stok = $tmp[0]->stok + $qty;
+
+		$this->db->set('stok',$stok);
+		$this->db->where('id',$temp[0]->id_referensi_part);
+		$this->db->update('referensipart');
 
 		$this->db->where('id_referensi_part', $id);
 		$this->db->where('id_transaksi', $_SESSION['id_transaksi']);
