@@ -13,7 +13,6 @@ class Log extends CI_Controller {
 		$this->load->view('header', $data);
 	}
 
-<<<<<<< HEAD
 	function add($id){
 
 		$this->Jasa->insert($id, $_SESSION['id_trans']);
@@ -40,34 +39,10 @@ class Log extends CI_Controller {
 		$this->Transaksi->update($jumlah);
 		$this->index();
 
-=======
-	public function open(){
-
-		$data['pembelian'] = "active";
-		$data['service'] = "";
-		$data['laporan'] = "";
-
-		$data['referensipart'] = $this->Part->getAll()->result();
-		$data['part'] = $this->Part->getView($_SESSION['id_transaksi'])->result();
-
-		$this->load->view('v_log', $data);
-		$this->load->view('footer', $data);
-		$this->load->view('navigation', $data);
-		$this->load->view('header', $data);
-	}
-
-	function add(){
-
-		$id_referensi = $this->input->post('id_part');
-		$quantity = $this->input->post('qty');
-		$this->Part->insert($id_referensi,$_SESSION['id_transaksi'],$quantity);
-		$this->open();
->>>>>>> bef7d4e2c73b8a24cc2ccf30f4348abf1fd42e92
 	}
 
 	function remove($id){
 
-<<<<<<< HEAD
 		$temp = $this->Jasa->getRefById($id)->result();
 
 		$detail = $this->Jasa->getDetail($temp[0]->id_referensi_jasa)->result();
@@ -113,28 +88,6 @@ class Log extends CI_Controller {
 		$this->load->view('navigation', $data);
 		$this->load->view('header', $data);
 		$this->load->view('footer', $data);
-=======
-		$this->Part->delete($id);
-		$this->open();
-	}
-
-	function save(){
-
-		$id = $this->input->post('no_transaksi');
-		$tgl = $this->input->post('tanggal');
-		$nama = $this->input->post('nama_cust');
-
-		$this->session->set_userdata('cust', $nama);
-
-		$alamat = "";
-		$stnk = "";
-		$merk = "";
-		$this->Pelanggan->insert($nama,$alamat,$stnk,$merk);
-		$id_pel = $this->Pelanggan->getIDPel();
-
-		$this->Transaksi->insert($id,$_SESSION['id_kasir'],$tgl,$id_pel,"-");
-		$this->open();
->>>>>>> bef7d4e2c73b8a24cc2ccf30f4348abf1fd42e92
 	}
 }
 ?>

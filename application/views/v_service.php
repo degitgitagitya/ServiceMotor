@@ -1,6 +1,6 @@
 
 <?php
-	$no = 1;
+  $no = 1;
   $jumlah = 0;
 ?>
 
@@ -26,9 +26,9 @@
         </div>
         <div class="col-sm-3">
           <div class="form-group">
-			  <input readonly class="form-control input-sm" type="text" name="no_transaksi" value="<?php echo $_SESSION['id_transaksi'];?>">
-			  <input readonly class="form-control input-sm" type="text" name="tanggal" value="<?php echo date("d/n/Y") ?>">
-			  <input class="form-control input-sm" type="text" value="<?php if(isset($_SESSION['cust'])){echo $_SESSION['cust'];}?>" name="nama_cust">
+        <input readonly class="form-control input-sm" type="text" name="no_transaksi" value="<?php echo $_SESSION['id_transaksi'];?>">
+        <input readonly class="form-control input-sm" type="text" name="tanggal" value="<?php echo date("d/n/Y") ?>">
+        <input class="form-control input-sm" type="text" value="<?php if(isset($_SESSION['cust'])){echo $_SESSION['cust'];}?>" name="nama_cust">
 
           </div>
         </div>
@@ -48,22 +48,22 @@
         </div>
         <div class="col-xm-2 col-md-offset-1">
           <div>
-			  <h5>Nama Kasir</h5>
-			  <h5 class="pt-2">Nama Mekanik</h5>
+        <h5>Nama Kasir</h5>
+        <h5 class="pt-2">Nama Mekanik</h5>
           </div>
         </div>
         <div class="col-sm-2">
           <div class="form-group">
-			  <input class="form-control input-sm" type="text" name="nama_kasir" value="<?php echo $_SESSION['nama_kasir'] ?>" readonly>
-			  <select class="form-control input-sm" name="mekanik" id="mekanik">
-				  <option value="" selected disabled hidden>Pilih Mekanik</option>
-				  <?php foreach ($mekanik as $value){ ?>
-				  <option <?php if(isset($_SESSION['mekanik'])){if ($_SESSION['mekanik'] == $value->nama){?> selected <?php } } ?> value="<?php echo $value->nama?>"><?php echo $value->nama?></option>
-				  <?php } ?>
-			  </select>
-			  <?php if ($_SESSION['cust'] == ""){ ?>
-				  <input type="submit" class="input-sm btn btn btn-success" value="Ok">
-			  <?php } ?>
+        <input class="form-control input-sm" type="text" name="nama_kasir" value="<?php echo $_SESSION['nama_kasir'] ?>" readonly>
+        <select class="form-control input-sm" name="mekanik" id="mekanik">
+          <option value="" selected disabled hidden>Pilih Mekanik</option>
+          <?php foreach ($mekanik as $value){ ?>
+          <option <?php if(isset($_SESSION['mekanik'])){if ($_SESSION['mekanik'] == $value->nama){?> selected <?php } } ?> value="<?php echo $value->nama?>"><?php echo $value->nama?></option>
+          <?php } ?>
+        </select>
+        <?php if ($_SESSION['cust'] == ""){ ?>
+          <input type="submit" class="input-sm btn btn btn-success" value="Ok">
+        <?php } ?>
           </div>
         </div>
       </form>
@@ -85,14 +85,14 @@
                 </tr>
               </thead>
               <tbody>
-			  <?php foreach ($jasa as $value){?>
+        <?php foreach ($jasa as $value){?>
                 <tr class="table table-light">
                   <td><?php echo $no++;?></td>
                   <td><?php echo $value->kategori?></td>
                   <td><?php echo $value->harga_jasa?></td>
                   <td><a href="<?php echo base_url('index.php/Service/remove/').$value->id;?>" class="btn btn-warning">Delete</a></td>
                 </tr>
-			  <?php $jumlah = $jumlah + $value->harga_jasa; } ?>
+        <?php $jumlah = $jumlah + $value->harga_jasa; } ?>
               </tbody>
             </table>
             <div class="col-xs-2 col-md-offset-8">
@@ -116,7 +116,6 @@
   </div>
 </div>
 
-<<<<<<< HEAD
 <?php
   $no2 = 1;
   $jumlah2 = 0;
@@ -204,5 +203,3 @@
     </div>
   </div>
 </div>
-=======
->>>>>>> bef7d4e2c73b8a24cc2ccf30f4348abf1fd42e92

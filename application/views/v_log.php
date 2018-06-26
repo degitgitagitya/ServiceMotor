@@ -42,11 +42,7 @@
                   <td><?php echo $value->tanggal_transaksi; ?></td>
                   <td><?php echo $value->nama_pelanggan; ?></td>
                   <td><?php echo $value->harga_total; ?></td>
-<<<<<<< HEAD
                   <td><a href="<?php echo base_url('log/detail/').$value->id_transaksi;?>" class="btn btn-warning">Detail</a></td>
-=======
-                  <td><a href="<?php echo base_url('index.php/transaksi/detail/').$value->id_transaksi;?>" class="btn btn-warning">Detail</a></td>
->>>>>>> bef7d4e2c73b8a24cc2ccf30f4348abf1fd42e92
                 </tr>
 
               <?php } ?>
